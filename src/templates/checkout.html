@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('charge', email=order.email)}}" method="post">
+        <article>
+            <label>姓名: {{ order.name }} </label>
+            <label>電話: {{ order.phone }} </label>
+            <label>Email: {{ order.email }} </label>
+            <label>地址: {{ order.address }} </label>
+            <label>應付款: {{ order.price }} </label>
+        </article>
+        <script 
+            src="https://button.stripe.com/v1/button.js" class="stripe-button" 
+            data-key="{{ key }}"
+            data-amount="{{ order.price*100 }}"
+            data-name="{{ order.name }}">
+        </script>
+    </form>
+</body>
+</html>

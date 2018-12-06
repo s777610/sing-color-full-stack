@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="{{url_for('static',filename='css/icon-font.css')}}">
+        <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> -->
+        <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='img/sing_logo.png')}}">
+        <title>Sing Color </title>
+</head>
+<body>
+        <div class="popup" id="popup">
+                <div class="popup__content">
+                    <div class="popup__left">
+                            
+                        <img src="{{url_for('static',filename='img/popup1.jpg')}}" alt="tour photo" class="popup__img">
+                        <img src="{{url_for('static',filename='img/popup2.jpg')}}" alt="tour photo" class="popup__img">
+                    </div>
+                    <div class="popup__right">
+                        <a href="#section-tours" class="popup__close">&times;</a>
+                        <h2 class="heading-seconday u-margin-bottom-small">Start booking now</h2>
+                        <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read there terms before booking</h3>
+                            <form action="{{url_for('order')}}" method="post">
+                                <label for="name">姓名</label>
+                                <input type="text" name="name" placeholder="姓名">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" placeholder="Email">
+                                <label for="phone">電話</label>
+                                <input type="text" name="phone" placeholder="電話">
+                                <label for="address">地址</label>
+                                <input type="text" name="address" placeholder="地址">
+                                <label for="letters">字母/字串</label>
+                                <input type="text" name="letters" placeholder="字母/字串">
+                                <select name="key">
+                                        <option value="true">加鑰匙圈</option>
+                                        <option value="false">不加鑰匙圈</option>
+                                </select>
+                                <select name="order_type">
+                                        <option value="single">單字</option>
+                                        <option value="multi">字串(一個以上)</option>
+                                </select>
+                                <input type="submit" value="Submit">
+                            </form>
+                        <a href="#" class="btn btn--green">Book now</a>
+                    </div>
+                </div>
+            </div>
+
+
+</body>
+</html>
