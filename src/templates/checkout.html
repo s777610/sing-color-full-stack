@@ -29,12 +29,21 @@
             <label>地址: {{ order.address }} </label>
             <label>應付款: {{ order.price }} </label>
         </article>
-        <script 
+        <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ key }}"
+            data-amount="{{ order.price*100 }}"
+            data-name="Demo Site"
+            data-description="Example charge"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+        </script>
+        <!-- <script 
             src="https://button.stripe.com/v1/button.js" class="stripe-button" 
             data-key="{{ key }}"
             data-amount="{{ order.price*100 }}"
             data-name="{{ order.name }}">
-        </script>
+        </script> -->
     </form>
 </body>
 </html>

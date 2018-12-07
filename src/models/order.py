@@ -17,7 +17,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
-    phone = db.Column(db.String(20), unique=True, nullable=False)
+    phone = db.Column(db.String(20), nullable=False)
     address = db.Column(db.String(200), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     key_holder = db.Column(db.String(20), nullable=False)
@@ -117,14 +117,18 @@ class Order(db.Model):
     def save_to_db(self):
         db.session.add(self)
         db.session.commit()
+        
 
 
     def delete_from_db(self):
         db.session.delete(self)
+        
         db.session.commit()
+        
 
     @classmethod
     def find_by_email(cls, email):
+        db.session.rollback() # why?
         return cls.query.filter_by(email=email).first()
 
 # create table after this ORM defined

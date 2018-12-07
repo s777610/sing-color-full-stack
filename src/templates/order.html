@@ -23,19 +23,19 @@
                         <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read there terms before booking</h3>
                             <form action="{{url_for('order')}}" method="post">
                                 <label for="name">姓名</label>
-                                <input type="text" name="name" placeholder="姓名">
+                                <input type="text" name="name" placeholder="姓名" required>
 
                                 <label for="email">Email</label>
-                                <input type="email" name="email" placeholder="Email">
+                                <input type="email" name="email" placeholder="Email" required>
 
                                 <label for="phone">電話</label>
-                                <input type="text" name="phone" placeholder="電話">
+                                <input type="text" name="phone" placeholder="電話" required>
 
                                 <label for="address">地址</label>
-                                <input type="text" name="address" placeholder="地址">
+                                <input type="text" name="address" placeholder="地址" required>
 
                                 <label for="letters">字母/字串</label>
-                                <input type="text" name="letters" placeholder="字母/字串">
+                                <input type="text" name="letters" placeholder="字母/字串" required>
                                 
                                 <select name="key_holder">
                                         <option value="true">加鑰匙圈</option>

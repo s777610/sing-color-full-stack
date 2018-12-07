@@ -35,7 +35,12 @@ def order():
             order.single_letter_calc_price()
         else:
             order.multi_letter_calc_price()
-        order.save_to_db()
+        try:
+            order.save_to_db()
+        except:
+            old_order = Order.find_by_email(email)
+            old_order.delete_from_db()
+            order.save_to_db()
         return render_template("checkout.html", order=order, key=os.environ['PUBLISHABLE_KEY'])
     return render_template("order.html")
 
