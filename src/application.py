@@ -36,7 +36,7 @@ def order():
         else:
             order.multi_letter_calc_price()
         try:
-            order.save_to_db()
+            order.save_to_db() # we are tring to store this, even this already exisit
         except:
             old_order = Order.find_by_email(email)
             old_order.delete_from_db()
