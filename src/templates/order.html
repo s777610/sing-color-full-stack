@@ -24,15 +24,20 @@
                             <form action="{{url_for('order')}}" method="post">
                                 <label for="name">姓名</label>
                                 <input type="text" name="name" placeholder="姓名">
+
                                 <label for="email">Email</label>
                                 <input type="email" name="email" placeholder="Email">
+
                                 <label for="phone">電話</label>
                                 <input type="text" name="phone" placeholder="電話">
+
                                 <label for="address">地址</label>
                                 <input type="text" name="address" placeholder="地址">
+
                                 <label for="letters">字母/字串</label>
                                 <input type="text" name="letters" placeholder="字母/字串">
-                                <select name="key">
+                                
+                                <select name="key_holder">
                                         <option value="true">加鑰匙圈</option>
                                         <option value="false">不加鑰匙圈</option>
                                 </select>

@@ -28,15 +28,13 @@ def order():
         phone = request.form['phone']
         address = request.form['address']
         letters = request.form['letters']
-        key_html = request.form['key']
-        key = True if key_html == 'true' else False
-        order_type = request.form['order_type']
-        num_letter = len(letters)
-        order = Order(name, email, phone, address)
-        if order_type == 'single':
-            order.single_letter_calc_price(num_letter, key)
+        key_holder = request.form['key_holder']
+        item_type = request.form['order_type']
+        order = Order(name, email, phone, address, letters, key_holder, item_type)
+        if item_type == 'single':
+            order.single_letter_calc_price()
         else:
-            order.multi_letter_calc_price(num_letter, key)
+            order.multi_letter_calc_price()
         order.save_to_db()
         return render_template("checkout.html", order=order, key=os.environ['PUBLISHABLE_KEY'])
     return render_template("order.html")

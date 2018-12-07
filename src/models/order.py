@@ -20,29 +20,36 @@ class Order(db.Model):
     phone = db.Column(db.String(20), unique=True, nullable=False)
     address = db.Column(db.String(200), nullable=False)
     price = db.Column(db.Integer, nullable=False)
+    key_holder = db.Column(db.String(20), nullable=False)
+    item_type = db.Column(db.String(20), nullable=False)
+    letters = db.Column(db.String(100), nullable=False)
 
-    def __init__(self, name, email, phone, address, price=None):
+    def __init__(self, name, email, phone, address, letters, key_holder, item_type):
         self.name = name
         self.email = email
         self.phone = phone
         self.address = address
-        self.price = price
+        self.letters = letters
+        self.key_holder = key_holder
+        self.item_type = item_type
+        self.num_letter = len(letters)
+        self.price = None
         
 
-    def single_letter_calc_price(self, num_letter, key):
+    def single_letter_calc_price(self):
         price = 0
-        if key:
+        if self.key_holder == 'true':
             price = price + KEY_PRICE
-        price = price + num_letter * SINGLE_LETTER_PRICE
-        if num_letter > 5:
+        price = price + self.num_letter * SINGLE_LETTER_PRICE
+        if self.num_letter > 5:
             price = int(price * 0.9)
         self.price = price
         return price
 
-    def multi_letter_calc_price(self, num_letter, key):
+    def multi_letter_calc_price(self):
         price = MULTI_LETTER_PRICE * 2 + BASE_PRICE
-        num = num_letter - 2
-        if key:
+        num = self.num_letter - 2
+        if self.key_holder == 'true':
             price = price + KEY_PRICE
         if num == 0: # if just 2 letter
             self.price = price
@@ -50,6 +57,12 @@ class Order(db.Model):
         price = price + num * MULTI_LETTER_PRICE
         self.price = price
         return price
+
+    def get_item_detail(self):
+        if self.item_type == 'single':
+            return list(self.letters)
+        else:
+            return self.letters
 
     def charge_with_stripe(self, card):
         try:
@@ -73,6 +86,9 @@ class Order(db.Model):
         姓名：{self.name}
         Email：{self.email}
         電話：{self.phone}
+        商品：{self.get_item_detail()}
+        類型：{'單字' if self.item_type == "single" else '字串'}
+        鑰匙圈：{'加' if self.key_holder == "true" else '不加'}
         郵寄地址：{self.address}
         價錢：{self.price}
         """
@@ -86,6 +102,9 @@ class Order(db.Model):
         姓名：{self.name}
         Email：{self.email}
         電話：{self.phone}
+        商品：{self.get_item_detail()}
+        類型：{'單字' if self.item_type == "single" else '字串'}
+        鑰匙圈：{'加' if self.key_holder == "true" else '不加'}
         地址：{self.address}
         已付款：{self.price}
 
