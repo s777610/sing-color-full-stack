@@ -1,15 +1,17 @@
 import os
+
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail
+from config import Config
 
 
 
 application = Flask(__name__)
-application.config['SECRET_KEY'] = 'mysecretkey'
-application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
-application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+application.config.from_object(Config)
 application.url_map.strict_slashes = False
 db = SQLAlchemy(application)
+mail = Mail(application)
 
 
 @application.route('/')
@@ -48,7 +50,8 @@ def charge(email):
         order = Order.find_by_email(email)
         success = order.charge_with_stripe(card)
         if success:
-            # sending email to naked and buyer
+            order.email_to_seller()
+            order.email_to_buyer()
             order.delete_from_db()
             return render_template('confirmation.html', amount=order.price)
         else:

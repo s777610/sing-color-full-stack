@@ -108,7 +108,7 @@ venv.bak/
 /site
 
 #db
-company_blog/data.sqlite
+data.sqlite
 *.db
 
 # mypy

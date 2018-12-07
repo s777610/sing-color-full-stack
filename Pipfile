@@ -9,6 +9,7 @@ verify_ssl = true
 flask = "*"
 stripe = "*"
 flask-sqlalchemy = "*"
+flask-mail = "*"
 
 [requires]
 python_version = "3.6"

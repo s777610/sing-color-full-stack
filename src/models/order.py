@@ -1,7 +1,10 @@
 import os
 import stripe
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Message
+
 from application import db
+from application import mail
 
 
 SINGLE_LETTER_PRICE = 180
@@ -59,6 +62,38 @@ class Order(db.Model):
             return True
         except:
             return False
+
+    def email_to_seller(self):
+        # recipients=["2018singcolor@gmail.com"]
+        msg = Message(f'訂單, {self.email}, {self.name}',
+                sender='noreply@demo.com',
+                recipients=["2018singcolor@gmail.com"])  
+        msg.body = f""" 
+        買家資料： 
+        姓名：{self.name}
+        Email：{self.email}
+        電話：{self.phone}
+        郵寄地址：{self.address}
+        價錢：{self.price}
+        """
+        mail.send(msg)
+
+    def email_to_buyer(self):
+        msg = Message(f'Sing Color 認證函',
+                sender='noreply@demo.com',
+                recipients=[f"{self.email}"])  
+        msg.body = f""" 
+        姓名：{self.name}
+        Email：{self.email}
+        電話：{self.phone}
+        地址：{self.address}
+        已付款：{self.price}
+
+        
+        客服電話：0937255052
+        客服信箱：2018singcolor@gmail.com
+        """
+        mail.send(msg)
     
     def save_to_db(self):
         db.session.add(self)
