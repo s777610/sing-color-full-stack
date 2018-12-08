@@ -1,57 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-        <link rel="stylesheet" href="{{url_for('static',filename='css/icon-font.css')}}">
-        <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> -->
-        <link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='img/sing_logo.png')}}">
-        <title>Sing Color </title>
-</head>
-<body>
-        <div class="popup" id="popup">
-                <div class="popup__content">
-                    <div class="popup__left">
-                            
-                        <img src="{{url_for('static',filename='img/popup1.jpg')}}" alt="tour photo" class="popup__img">
-                        <img src="{{url_for('static',filename='img/popup2.jpg')}}" alt="tour photo" class="popup__img">
+{%extends "layout.html"%}
+{%block content%}
+        <div class="order">
+                <div class="order__content">
+                    <div class="order__left">
+                        <img src="{{url_for('static',filename='img/popup1.jpg')}}" alt="tour photo" class="order__img">
+                        <img src="{{url_for('static',filename='img/popup2.jpg')}}" alt="tour photo" class="order__img">
                     </div>
-                    <div class="popup__right">
-                        <a href="#section-tours" class="popup__close">&times;</a>
-                        <h2 class="heading-seconday u-margin-bottom-small">Start booking now</h2>
-                        <h3 class="heading-tertiary u-margin-bottom-small">Important &ndash; Please read there terms before booking</h3>
-                            <form action="{{url_for('order')}}" method="post">
-                                <label for="name">姓名</label>
-                                <input type="text" name="name" placeholder="姓名" required>
 
-                                <label for="email">Email</label>
-                                <input type="email" name="email" placeholder="Email" required>
+                    <div class="order__right">
+                        <h2 class="heading-seconday u-margin-bottom-small">立即下單</h2>
+                        <h3 class="heading-tertiary u-margin-bottom-small">注意 &ndash; 請確實填寫郵寄地址</h3>
+                            <form class="order__form" action="{{url_for('order')}}" method="post">
 
-                                <label for="phone">電話</label>
-                                <input type="text" name="phone" placeholder="電話" required>
+                                <div class="order__form__element">
+                                    <label for="name">姓名：</label>
+                                    <input type="text" name="name"  required>
+                                </div>
 
-                                <label for="address">地址</label>
-                                <input type="text" name="address" placeholder="地址" required>
+                                <div class="order__form__element">
+                                    <label for="email">Email：</label>
+                                    <input type="email" name="email" placeholder="exampel@gmail.com" required>
+                                </div>
 
-                                <label for="letters">字母/字串</label>
-                                <input type="text" name="letters" placeholder="字母/字串" required>
-                                
-                                <select name="key_holder">
-                                        <option value="true">加鑰匙圈</option>
-                                        <option value="false">不加鑰匙圈</option>
-                                </select>
-                                <select name="order_type">
-                                        <option value="single">單字</option>
-                                        <option value="multi">字串(一個以上)</option>
-                                </select>
-                                <input type="submit" value="Submit">
+                                <div class="order__form__element">
+                                    <label for="phone">電話：</label>
+                                    <input type="text" name="phone" required>
+                                </div>
+
+                                <div class="order__form__element">
+                                    <label for="address">地址：</label>
+                                    <input type="text" name="address" required>
+                                </div>
+
+                                <div class="order__form__element">
+                                    <label for="letters">字母/字串：</label>
+                                    <input type="text" name="letters" required>
+                                </div>
+
+                                <div >
+                                    <select name="key_holder">
+                                            <option value="true">加鑰匙圈</option>
+                                            <option value="false">不加鑰匙圈</option>
+                                    </select>
+                                    <select name="order_type">
+                                            <option value="single">單字</option>
+                                            <option value="multi">字串(一個以上)</option>
+                                    </select>
+                                </div>
+
+                                <div class="order__form__submit">
+                                    <input type="submit" value="繼續">
+                                    <a href="{{url_for('home')}}">取消</a>
+                                </div>
                             </form>
-                        <a href="#" class="btn btn--green">Book now</a>
                     </div>
                 </div>
             </div>
-
-
-</body>
-</html>
+{%endblock%}

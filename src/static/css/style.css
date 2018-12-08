@@ -479,23 +479,19 @@ body {
   .feature-box:hover {
     transform: translateY(-1.5rem) scale(1.05); }
 
-.popup {
+.order {
   height: 100vh;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 9999;
-  opacity: 0;
-  visibility: hidden;
-  transition: all .5s; }
+  background-color: rgba(0, 0, 0, 0.7); }
   @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
-    .popup {
+    .order {
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       background-color: rgba(0, 0, 0, 0.3); } }
-  .popup__content {
+  .order__content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -505,71 +501,71 @@ body {
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     display: table;
-    overflow: hidden;
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.2);
-    transition: all .4s .2s; }
+    overflow: hidden; }
     @media only screen and (max-width: 75em) {
-      .popup__content {
+      .order__content {
         width: auto; } }
     @media only screen and (max-width: 56.25em) {
-      .popup__content {
+      .order__content {
         width: auto; } }
     @media only screen and (max-width: 37.5em) {
-      .popup__content {
+      .order__content {
         display: block;
         position: relative; } }
-  .popup__left {
+  .order__form {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem; }
+    .order__form__element {
+      display: flex;
+      margin-bottom: 1rem; }
+      .order__form__element input {
+        flex: 1;
+        background-color: lightgoldenrodyellow; }
+    .order__form__submit {
+      display: flex;
+      margin-top: 2rem;
+      font-weight: 600; }
+      .order__form__submit input {
+        background-color: #134e91;
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+        color: #fff;
+        font-size: 2rem;
+        margin-right: 2rem;
+        font-weight: inherit;
+        cursor: pointer; }
+        .order__form__submit input:hover {
+          background-color: #2998ff; }
+      .order__form__submit a {
+        background-color: #630404;
+        padding: 1rem 2rem;
+        border-radius: .5rem;
+        color: #fff;
+        font-size: 2rem;
+        text-decoration: none; }
+        .order__form__submit a:hover {
+          background-color: #e44040; }
+  .order__left {
     width: 33.333333%;
     display: table-cell; }
     @media only screen and (max-width: 56.25em) {
-      .popup__left {
+      .order__left {
         vertical-align: middle; } }
     @media only screen and (max-width: 37.5em) {
-      .popup__left {
+      .order__left {
         display: block; } }
-  .popup__right {
+  .order__right {
     width: 66.6666667%;
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem; }
-  .popup__img {
+  .order__img {
     display: block;
     width: 100%; }
     @media only screen and (max-width: 37.5em) {
-      .popup__img {
+      .order__img {
         display: none; } }
-  .popup__text {
-    font-size: 1.4rem;
-    margin-bottom: 4rem;
-    -moz-column-count: 2;
-    -moz-column-gap: 4rem;
-    -moz-column-rule: 1px solid #eee;
-    column-count: 2;
-    column-gap: 4rem;
-    column-rule: 1px solid #eee;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphens: auto; }
-  .popup:target {
-    opacity: 1;
-    visibility: visible; }
-  .popup:target .popup__content {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1); }
-  .popup__close:link, .popup__close:visited {
-    color: #777;
-    position: absolute;
-    top: 2.5rem;
-    right: 2.5rem;
-    font-size: 3rem;
-    text-decoration: none;
-    display: inline-block;
-    transition: all .2s;
-    line-height: 1; }
-  .popup__close:hover {
-    color: #134e91; }
 
 .form__group:not(:last-child) {
   margin-bottom: 2rem; }
@@ -655,71 +651,6 @@ body {
 
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
   opacity: 1; }
-
-.story {
-  width: 75%;
-  margin: 0 auto;
-  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.3);
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 3px;
-  padding: 6rem;
-  padding-left: 9rem;
-  font-size: 1.6rem;
-  transform: skewX(-12deg); }
-  @media only screen and (max-width: 56.25em) {
-    .story {
-      width: 100%;
-      padding: 4rem;
-      padding-left: 7rem; } }
-  @media only screen and (max-width: 37.5em) {
-    .story {
-      transform: skewX(0); } }
-  .story__shape {
-    width: 15rem;
-    height: 15rem;
-    float: left;
-    transform: translateX(-3rem) skewX(12deg);
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%; }
-    @supports (clip-path: polygon(0 0)) or (webkit-clip-path: polygon(0 0)) {
-      .story__shape {
-        -webkit-clip-path: circle(50% at 50% 50%);
-        clip-path: circle(50% at 50% 50%);
-        -webkit-shape-outside: circle(50% at 50% 50%);
-        shape-outside: circle(50% at 50% 50%);
-        border-radius: none; } }
-    @media only screen and (max-width: 37.5em) {
-      .story__shape {
-        transform: translateX(-3rem) skewX(0); } }
-  .story__img {
-    width: 100%;
-    transform: scale(1.2);
-    backface-visibility: hidden;
-    transition: all .5s; }
-  .story__text {
-    transform: skewX(12deg); }
-    @media only screen and (max-width: 37.5em) {
-      .story__text {
-        transform: skewX(0); } }
-  .story__caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 20%);
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 1.7rem;
-    text-align: center;
-    opacity: 0;
-    transition: all .5s;
-    backface-visibility: hidden; }
-  .story:hover .story__caption {
-    opacity: 1;
-    transform: translate(-50%, -50%); }
-  .story:hover .story__img {
-    transform: scale(1);
-    filter: blur(3px) brightness(80%); }
 
 .footer {
   background-color: #333;
@@ -977,7 +908,8 @@ body {
 .section-about {
   background-color: #f7f7f7;
   padding: 25rem 0;
-  margin-top: -20vh; }
+  margin-top: -20vh;
+  height: 100rem; }
   @media only screen and (max-width: 56.25em) {
     .section-about {
       padding: 20rem 0; } }
