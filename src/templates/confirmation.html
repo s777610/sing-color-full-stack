@@ -1,17 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    {% if text %}
-    <h2>{{ text }}</h2>
-    {% else %}
-    <h2>謝謝, 已付 <strong>$ {{ amount }}</strong>!</h2>
-    {% endif %}
-    <a href="{{ url_for('home') }}">回到首頁</a>
-</body>
-</html>
+{%extends "layout.html"%}
+{%block content%}
+<div class="order">
+        <div class="order__content">
+            <div class="order__left">
+                <img src="{{url_for('static',filename='img/popup1.jpg')}}" alt="tour photo" class="order__img">
+                <img src="{{url_for('static',filename='img/popup2.jpg')}}" alt="tour photo" class="order__img">
+            </div>
+    
+            <div class="order__right">
+                <h2 class="heading-seconday u-margin-bottom-small">購買結果</h2>
+                <h3 class="heading-tertiary u-margin-bottom-small">注意 &ndash; 請確實查收郵件</h3>
+
+                <div class="confirmation">
+                    {% if text %}
+                    <p><span>{{ text }}</span></p>
+                    {% else %}
+                    <p>謝謝, 已付 <span>$ {{ amount }}</strong>!</p>
+                    <p>購買認證已被寄到 <span> {{ email }} </span></p>
+                    {% endif %}
+                </div>
+
+                <a class="btn btn--green" href="{{ url_for('home') }}">回到首頁</a>
+            </div>
+    </div>
+</div>
+
+{%endblock%}

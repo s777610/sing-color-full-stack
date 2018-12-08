@@ -1,0 +1,14 @@
+article.checkout {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    color: $color-grey-dark;
+
+    label {
+
+        span {
+            font-weight: bold;
+            color: $color-black;
+        }
+    }
+}

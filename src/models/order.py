@@ -119,7 +119,7 @@ class Order(db.Model):
         try:
             db.session.commit()
         except:
-            db.session.rollback() # why?
+            db.session.rollback()
             raise
 
 

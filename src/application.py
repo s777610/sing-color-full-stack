@@ -56,7 +56,7 @@ def charge(email):
             order.email_to_seller()
             order.email_to_buyer()
             order.delete_from_db()
-            return render_template('confirmation.html', amount=order.price)
+            return render_template('confirmation.html', amount=order.price, email=order.email)
         else:
             return render_template('confirmation.html', text="購買失敗")
     return redirect(url_for('home'))
