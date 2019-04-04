@@ -1,48 +1,65 @@
-{%extends "layout.html"%}
-{%block content%}
+{%extends "layout.html"%} {%block content%}
 <div class="order">
-    <div class="order__content">
-        <div class="order__left">
-            <img src="{{url_for('static',filename='img/popup1.jpg')}}" alt="tour photo" class="order__img">
-            <img src="{{url_for('static',filename='img/popup2.jpg')}}" alt="tour photo" class="order__img">
-        </div>
-
-        <div class="order__right">
-            <h2 class="heading-seconday u-margin-bottom-small">訂單確認</h2>
-            <h3 class="heading-tertiary u-margin-bottom-small">注意 &ndash; 請確實填寫郵寄地址</h3>
-            <form action="{{url_for('charge', email=order.email)}}" method="post">
-                <article class="checkout">
-                    <label>姓名: <span>{{ order.name }}</span> </label>
-                    <label>電話: <span>{{ order.phone }}</span> </label>
-                    <label>Email: <span>{{ order.email }}</span> </label>
-                    <label>字母: <span>{{ order.letters }}</span> </label>
-                    
-                    {% if order.item_type == 'single' %}
-                    <label>類別: <span>單字</span> </label>
-                    {% else %}
-                    <label>類別: <span>字串</span> </label>
-                    {% endif %}
-
-                    {% if order.key_holder == 'true' %}
-                    <label>鑰匙圈: <span>加</span> </label>
-                    {% else %}
-                    <label>鑰匙圈: <span>不加</span> </label>
-                    {% endif %}
-
-                    <label>地址: <span>{{ order.address }}</span> </label>
-                    <label>應付款: <span>{{ order.price }}</span> </label>
-                </article>
-                <script
-                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="{{ key }}"
-                    data-amount="{{ order.price*100 }}"
-                    data-name="Sing Color"
-                    data-description="Sing Color"
-                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                    data-locale="auto">
-                </script>
-            </form>
-        </div>
+  <div class="order__content">
+    <div class="order__left">
+      <img
+        src="{{url_for('static',filename='img/popup1.jpg')}}"
+        alt="tour photo"
+        class="order__img"
+      />
+      <img
+        src="{{url_for('static',filename='img/popup2.jpg')}}"
+        alt="tour photo"
+        class="order__img"
+      />
     </div>
+
+    <div class="order__right">
+      <h2 class="heading-seconday u-margin-bottom-small">訂單確認</h2>
+      <h3 class="heading-tertiary u-margin-bottom-small">
+        注意 &ndash; 請確實填寫郵寄地址
+      </h3>
+      <form action="{{url_for('charge', email=order.email)}}" method="post">
+        <article class="checkout">
+          <label
+            >姓名: <span>{{ order.name }}</span>
+          </label>
+          <label
+            >電話: <span>{{ order.phone }}</span>
+          </label>
+          <label
+            >Email: <span>{{ order.email }}</span>
+          </label>
+          <label
+            >字母: <span>{{ order.letters }}</span>
+          </label>
+
+          {% if order.item_type == 'single' %}
+          <label>類別: <span>單字</span> </label> {% else %}
+          <label>類別: <span>字串</span> </label> {% endif %} {% if
+          order.key_holder == 'true' %}
+          <label>鑰匙圈: <span>加</span> </label> {% else %}
+          <label>鑰匙圈: <span>不加</span> </label> {% endif %}
+
+          <label
+            >地址: <span>{{ order.address }}</span>
+          </label>
+          <label
+            >應付款: <span>{{ order.price }}</span>
+          </label>
+        </article>
+        <script
+          src="https://checkout.stripe.com/checkout.js"
+          class="stripe-button"
+          data-key="{{ key }}"
+          data-amount="{{ order.price*100 }}"
+          data-name="Sing Color"
+          data-description="Sing Color"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+        ></script>
+      </form>
+    </div>
+  </div>
 </div>
 {%endblock%}

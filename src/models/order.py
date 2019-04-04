@@ -34,7 +34,7 @@ class Order(db.Model):
         self.item_type = item_type
         self.num_letter = len(letters)
         self.price = None
-        
+
 
     def single_letter_calc_price(self):
         price = 0
@@ -113,7 +113,7 @@ class Order(db.Model):
         客服信箱：2018singcolor@gmail.com
         """
         mail.send(msg)
-    
+
     def save_to_db(self):
         db.session.add(self)
         try:
@@ -122,11 +122,9 @@ class Order(db.Model):
             db.session.rollback()
             raise
 
-
     def delete_from_db(self):
         db.session.delete(self)
         db.session.commit()
-        
 
     @classmethod
     def find_by_email(cls, email):

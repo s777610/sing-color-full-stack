@@ -1,256 +1,297 @@
-{%extends "layout.html"%}
-{%block content%}
-            <div classs="navigation">
-                <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
-                <label for="navi-toggle" class="navigation__button">
-                    <label for="navi-toggle" class="navigation__button">
-                        <span class="navigation__icon">&nbsp;</span>
-                    </label>
-                </label>
-                <div class="navigation__background">&nbsp;</div>
-                <nav class="navigation__nav">
-                    <ul class="navigation__list">
+{%extends "layout.html"%} {%block content%}
+<div classs="navigation">
+  <input type="checkbox" class="navigation__checkbox" id="navi-toggle" />
+  <label for="navi-toggle" class="navigation__button">
+    <label for="navi-toggle" class="navigation__button">
+      <span class="navigation__icon">&nbsp;</span>
+    </label>
+  </label>
+  <div class="navigation__background">&nbsp;</div>
+  <nav class="navigation__nav">
+    <ul class="navigation__list">
+      <li class="navigation__item">
+        <a href="#" class="navigation__link" onclick="closeNavig()"
+          ><span>01</span>Sing Color</a
+        >
+      </li>
+      <li class="navigation__item">
+        <a href="#about" class="navigation__link" onclick="closeNavig()"
+          ><span>02</span>產品相關</a
+        >
+      </li>
+      <li class="navigation__item">
+        <a href="#contact" class="navigation__link" onclick="closeNavig()"
+          ><span>03</span>聯絡資訊</a
+        >
+      </li>
+      <li class="navigation__item">
+        <a href="#order" class="navigation__link" onclick="closeNavig()"
+          ><span>04</span>立即下單</a
+        >
+      </li>
+      <li class="navigation__item">
+        <a href="#story" class="navigation__link" onclick="closeNavig()"
+          ><span>05</span>品牌故事</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>
 
-    
-                        <li class="navigation__item"><a href="#" class="navigation__link" onclick="closeNavig()"><span>01</span>Sing Color</a></li>
-                        <li class="navigation__item"><a href="#about" class="navigation__link" onclick="closeNavig()"><span>02</span>產品相關</a></li>
-                        <li class="navigation__item"><a href="#contact" class="navigation__link" onclick="closeNavig()"><span>03</span>聯絡資訊</a></li>
-                        <li class="navigation__item"><a href="#order" class="navigation__link" onclick="closeNavig()"><span>04</span>立即下單</a></li>
-                        <li class="navigation__item"><a href="#story" class="navigation__link" onclick="closeNavig()"><span>05</span>品牌故事</a></li>
-                    </ul>
-                </nav>
+<script>
+  function closeNavig() {
+    document.getElementById("navi-toggle").checked = false;
+  }
+</script>
+
+<header class="header">
+  <div class="header__logo-box">
+    <img
+      src="{{url_for('static',filename='img/sing_logo.png')}}"
+      alt="Logo"
+      class="header__logo"
+    />
+  </div>
+
+  <div class="header__text-box">
+    <h1 class="heading-primary">
+      <span class="heading-primary--main">Sing Color</span>
+      <span class="heading-primary--sub">Sing Your Colorful Life</span>
+    </h1>
+
+    <a href="#section-tours" class="btn btn--white btn--animated">Explore</a>
+  </div>
+</header>
+
+<main>
+  <section class="section-about" id="about">
+    <div class="u-center-text u-margin-bottom-big">
+      <h2 class="heading-seconday">Sing Color!</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-1-of-2">
+        <h3 class="heading-tertiary u-margin-bottom-small">結婚小物, 情人節</h3>
+        <p class="paragraph">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique
+          consectetur veniam nulla et! Amet vel minus molestias labore
+          necessitatibus eveniet possimus sed, atque eos, provident voluptate
+          fugit corporis iure facere.
+        </p>
+        <h3 class="heading-tertiary u-margin-bottom-small">Sing Color Test.</h3>
+        <p class="paragraph">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique
+          consectetur veniam nulla et! Amet vel minus molestias labore
+          necessitatibus eveniet possimus sed, atque eos, provident voluptate
+          fugit corporis iure facere.
+        </p>
+      </div>
+      <div class="col-1-of-2">
+        <div class="composition">
+          <img
+            src="{{url_for('static',filename='img/pic-1.jpg')}}"
+            alt="Photo 1"
+            class="composition__photo composition__photo--p1"
+          />
+          <img
+            src="{{url_for('static',filename='img/pic-2.jpg')}}"
+            alt="Photo 2"
+            class="composition__photo composition__photo--p2"
+          />
+          <img
+            src="{{url_for('static',filename='img/pic-3.jpg')}}"
+            alt="Photo 3"
+            class="composition__photo composition__photo--p3"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-features" id="contact">
+    <div class="row">
+      <div class="col-1-of-4">
+        <div class="feature-box">
+          <i class="feature-box__icon icon-basic-star"></i>
+          <h3 class="heading-tertiary u-margin-bottom-small">最佳銷售</h3>
+          <p class="feature-box__text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique
+          </p>
+        </div>
+      </div>
+      <div class="col-1-of-4">
+        <div class="feature-box">
+          <i class="feature-box__icon icon-basic-mail"></i>
+          <h3 class="heading-tertiary u-margin-bottom-small">聯絡資訊</h3>
+          <p class="feature-box__text">
+            0937255052 <br />
+            Line: <br />
+            Email:
+          </p>
+        </div>
+      </div>
+      <div class="col-1-of-4">
+        <div class="feature-box">
+          <i class="feature-box__icon icon-basic-geolocalize-05"></i>
+          <h3 class="heading-tertiary u-margin-bottom-small">地點</h3>
+          <p class="feature-box__text">
+            彰化火車站<br />
+            車頭機車<br />
+            ㄏ
+          </p>
+        </div>
+      </div>
+      <div class="col-1-of-4">
+        <div class="feature-box">
+          <i class="feature-box__icon icon-basic-webpage-multiple"></i>
+          <h3 class="heading-tertiary u-margin-bottom-small">贊助</h3>
+          <p class="feature-box__text">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-tours" id="order">
+    <div class="u-center-text u-margin-bottom-big">
+      <h2 class="heading-seconday">立即下單</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--1">&nbsp;</div>
+            <h4 class="card__heading">
+              <span class="card__heading-span card__heading-span--1">
+                單字
+              </span>
+            </h4>
+            <div class="card__details">
+              <ul>
+                <li>單字 $180</li>
+                <li>5個字以上特價</li>
+                <li>第6個字 $160</li>
+                <li>鑰匙圈加 $19</li>
+                <li>$3000 以上免運費</li>
+              </ul>
             </div>
+          </div>
 
-            <script>
-                function closeNavig() {document.getElementById('navi-toggle').checked = false;}
-            </script>
-
-        <header class='header'>
-            <div class='header__logo-box'>
-                <img src="{{url_for('static',filename='img/sing_logo.png')}}" alt='Logo' class='header__logo'>
+          <div class="card__side card__side--back card__side--back-1">
+            <div class="card__cta">
+              <div class="card__price-box">
+                <p class="card__price-only">單字只要</p>
+                <p class="card__price-value">$180起</p>
+              </div>
+              <a href="{{ url_for('order') }}" class="btn btn--white">下單</a>
             </div>
-
-            <div class="header__text-box">
-                <h1 class="heading-primary">
-                    <span class="heading-primary--main">Sing Color</span>
-                    <span class="heading-primary--sub">Sing Your Colorful Life</span>
-                </h1>
-
-                <a href="#section-tours" class="btn btn--white btn--animated">Explore</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--2">&nbsp;</div>
+            <h4 class="card__heading">
+              <span class="card__heading-span card__heading-span--2">
+                字串
+              </span>
+            </h4>
+            <div class="card__details">
+              <ul>
+                <li>2 字串鑰匙圈 $420</li>
+                <li>3 字串鑰匙圈 $620</li>
+                <li>4 字串鑰匙圈 $820</li>
+                <li>字串擺飾(鑰匙圈相同)</li>
+                <li>$3000 以上免運費</li>
+              </ul>
             </div>
-            
-        </header>
+          </div>
+          <div class="card__side card__side--back card__side--back-2">
+            <div class="card__cta">
+              <div class="card__price-box">
+                <p class="card__price-only">字串只要</p>
+                <p class="card__price-value">$420起</p>
+              </div>
+              <a href="{{ url_for('order') }}" class="btn btn--white">下單</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--3">&nbsp;</div>
+            <h4 class="card__heading">
+              <span class="card__heading-span card__heading-span--3">
+                5個字母以上 (特價)
+              </span>
+            </h4>
+            <div class="card__details">
+              <ul>
+                <li>第6個字 $160</li>
+                <li>第6個字 $160</li>
+                <li>$3000 以上免運費</li>
+                <li>&nbsp;</li>
+                <li>&nbsp;</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card__side card__side--back card__side--back-3">
+            <div class="card__cta">
+              <div class="card__price-box">
+                <p class="card__price-only">6字只要</p>
+                <p class="card__price-value">$1060起</p>
+              </div>
+              <a href="{{ url_for('order') }}" class="btn btn--white">下單</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-        <main>
-            <section class="section-about" id="about">
-                <div class="u-center-text u-margin-bottom-big">
-                    <h2 class="heading-seconday">
-                        Sing Color!
-                    </h2>
-                </div>
-
-                <div class="row">
-                    <div class="col-1-of-2">
-                        <h3 class="heading-tertiary u-margin-bottom-small">結婚小物, 情人節</h3>
-                        <p class="paragraph">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique consectetur veniam nulla et! Amet vel minus molestias labore necessitatibus eveniet possimus sed, atque eos, provident voluptate fugit corporis iure facere.
-                        </p>
-                        <h3 class="heading-tertiary u-margin-bottom-small">Sing Color Test.</h3>
-                        <p class="paragraph">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique consectetur veniam nulla et! Amet vel minus molestias labore necessitatibus eveniet possimus sed, atque eos, provident voluptate fugit corporis iure facere.
-                        </p>
-                    </div>
-                    <div class="col-1-of-2">
-                        <div class="composition">
-                                
-                            <img src="{{url_for('static',filename='img/pic-1.jpg')}}" alt="Photo 1" class="composition__photo composition__photo--p1">
-                            <img src="{{url_for('static',filename='img/pic-2.jpg')}}" alt="Photo 2" class="composition__photo composition__photo--p2">
-                            <img src="{{url_for('static',filename='img/pic-3.jpg')}}" alt="Photo 3" class="composition__photo composition__photo--p3">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-features" id="contact">
-                <div class="row">
-                    <div class="col-1-of-4">
-                        <div class="feature-box">
-                            <i class="feature-box__icon icon-basic-star"></i>
-                            <h3 class="heading-tertiary u-margin-bottom-small">最佳銷售</h3>
-                            <p class="feature-box__text">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-1-of-4">
-                        <div class="feature-box">
-                            <i class="feature-box__icon icon-basic-mail"></i>
-                            <h3 class="heading-tertiary u-margin-bottom-small">聯絡資訊</h3>
-                            <p class="feature-box__text">
-                                0937255052 <br>
-                                Line: <br>
-                                Email: 
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-1-of-4">
-                        <div class="feature-box">
-                            <i class="feature-box__icon icon-basic-geolocalize-05"></i>
-                            <h3 class="heading-tertiary u-margin-bottom-small">地點</h3>
-                            <p class="feature-box__text">
-                                彰化火車站<br>
-                                車頭機車<br>
-                                ㄏ
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-1-of-4">
-                        <div class="feature-box">
-                            <i class="feature-box__icon icon-basic-webpage-multiple"></i>
-                            <h3 class="heading-tertiary u-margin-bottom-small">贊助</h3>
-                            <p class="feature-box__text">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique
-                            </p>
-                        </div>
-                    </div>
-                        
-                </div>
-            </section>
-
-            <section class="section-tours" id="order">
-                <div class="u-center-text u-margin-bottom-big">
-                    <h2 class="heading-seconday">
-                        立即下單
-                    </h2>
-                </div>
-
-                <div class="row">
-                    <div class="col-1-of-3">
-                        <div class="card">
-
-                                <div class="card__side card__side--front">
-                                    <div class="card__picture card__picture--1">
-                                        &nbsp;
-                                    </div>
-                                    <h4 class="card__heading">
-                                        <span class="card__heading-span card__heading-span--1">
-                                            單字
-                                        </span>
-                                            
-                                    </h4>
-                                    <div class="card__details">
-                                        <ul>
-                                            <li>單字 $180</li>
-                                            <li>5個字以上特價</li>
-                                            <li>第6個字 $160</li>
-                                            <li>鑰匙圈加 $19</li>
-                                            <li>$3000 以上免運費</li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            <div class="card__side card__side--back card__side--back-1">
-                                    <div class="card__cta">
-                                            <div class="card__price-box">
-                                                <p class="card__price-only">單字只要</p>
-                                                <p class="card__price-value">$180起</p>
-                                            </div>
-                                            <a href="{{url_for('order')}}" class="btn btn--white">下單</a>
-                                        </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-1-of-3">
-                            <div class="card">
-                                    <div class="card__side card__side--front">
-                                        <div class="card__picture card__picture--2">
-                                            &nbsp;
-                                        </div>
-                                        <h4 class="card__heading">
-                                            <span class="card__heading-span card__heading-span--2">
-                                                字串
-                                            </span>
-                                        </h4>
-                                        <div class="card__details">
-                                            <ul>
-                                                <li>2 字串鑰匙圈 $420</li>
-                                                <li>3 字串鑰匙圈 $620</li>
-                                                <li>4 字串鑰匙圈 $820</li>
-                                                <li>字串擺飾(鑰匙圈相同)</li>
-                                                <li>$3000 以上免運費</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card__side card__side--back card__side--back-2">
-                                        <div class="card__cta">
-                                            <div class="card__price-box">
-                                                <p class="card__price-only">字串只要</p>
-                                                <p class="card__price-value">$420起</p>
-                                            </div>
-                                            <a href="{{url_for('order')}}" class="btn btn--white">下單</a>
-                                        </div>
-                                    </div>
-                                </div>
-                    </div>
-                    <div class="col-1-of-3">
-                            <div class="card">
-                                    <div class="card__side card__side--front">
-                                        <div class="card__picture card__picture--3">
-                                            &nbsp;
-                                        </div>
-                                        <h4 class="card__heading">
-                                            <span class="card__heading-span card__heading-span--3">
-                                                5個字母以上 (特價)
-                                            </span>
-                                                
-                                        </h4>
-                                        <div class="card__details">
-                                            <ul>
-                                                <li>第6個字 $160</li>
-                                                <li>第6個字 $160</li>
-                                                <li>$3000 以上免運費</li>
-                                                <li>&nbsp;</li>
-                                                <li>&nbsp;</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card__side card__side--back card__side--back-3">
-                                        <div class="card__cta">
-                                            <div class="card__price-box">
-                                                <p class="card__price-only">6字只要</p>
-                                                <p class="card__price-value">$1060起</p>
-                                            </div>
-                                            <a href="{{url_for('order')}}" class="btn btn--white">下單</a>
-                                        </div>
-                                    </div>
-                                </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-                <!-- <div class="footer__logo-box">
+<footer class="footer">
+  <!-- <div class="footer__logo-box">
                     <img src="{{url_for('static',filename='img/logo-green-2x.png')}}" alt="白底logo" class="footer__logo">
                 </div> -->
-                <div class="row">
-                    <div class="col-1-of-2">
-                        <div class="footer__navigation">
-                            <ul class="footer__list">
-                                <li class="footer__item"><a href="#" class="footer__link">Company</a></li>
-                                <li class="footer__item"><a href="#" class="footer__link">Contact us</a></li>
-                                <li class="footer__item"><a href="#" class="footer__link">Carrers</a></li>
-                                <li class="footer__item"><a href="#" class="footer__link">Privacy policy</a></li>
-                                <li class="footer__item"><a href="#" class="footer__link">Terms</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-1-of-2">
-                        <p class="footer__copyright">
-                            Built by <a href="https://weichenghung.com/" class="footer__link" target="_blank">Wilson</a> for his online course <a href="#" class="footer__link">Advanced CSS and Sass</a>. Copyright &copy; by Jonas Schmedtmann 
-                        </p>
-                    </div>
-                </div>
-            </footer>
+  <div class="row">
+    <div class="col-1-of-2">
+      <div class="footer__navigation">
+        <ul class="footer__list">
+          <li class="footer__item">
+            <a href="#" class="footer__link">Company</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Contact us</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Carrers</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Privacy policy</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Terms</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-1-of-2">
+      <p class="footer__copyright">
+        Built by
+        <a href="https://weichenghung.com/" class="footer__link" target="_blank"
+          >Wilson</a
+        >
+        for his online course
+        <a href="#" class="footer__link">Advanced CSS and Sass</a>. Copyright
+        &copy; by Jonas Schmedtmann
+      </p>
+    </div>
+  </div>
+</footer>
 
 {%endblock%}
